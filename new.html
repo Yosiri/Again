@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>APPOINTMENT LIST</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #333;
+            color: #fff;
+            margin: 0;
+        }
+
+        .navbar {
+            background-color: #007bff;
+            padding: 10px;
+            text-align: center;
+        }
+
+        .navbar a {
+            color: #fff;
+            text-decoration: none;
+            margin: 0 15px;
+            cursor: pointer;
+        }
+
+        .friend-list {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            padding: 20px;
+        }
+
+        .friend {
+            background-color: #444;
+            border: 1px solid #666;
+            margin: 10px;
+            padding: 15px;
+            width: 200px;
+            text-align: center;
+            transition: 0.3s;
+            cursor: pointer;
+            overflow: hidden; 
+        }
+
+        .friend:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+        }
+
+        .friend img {
+            width: 100px;
+            height: 100px;
+            border-radius: 80%;
+            margin-bottom: 30px;
+        }
+
+        .details {
+            display: none;
+            padding: 10px;
+            text-align: left;
+        }
+
+        .friend:hover .details {
+            display: block;
+        }
+
+        .friend p {
+            margin: 5px 0;
+        }
+
+        .friend button {
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            padding: 8px 12px;
+            margin-top: 10px;
+            cursor: pointer;
+        }
+
+        .friend button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+
+<div class="navbar">
+    <a href="welcome.html">Home</a>
+    <a href="new.html">Appointment List</a>
+    <a href="Index.html">Login</a>
+    <a href="Index.html">Sign-up</a>
+</div>
+
+<div class="friend-list" id="friendList">
+</div>
+
+<script>
+    const users = [
+        { name: "Aldrich Miguel M. Malijan", gender: "Male", building: "A", Room: "102", time: "7am-11:45pm 12pm-6pm ", image: "Hello.JPG" },
+        { name: "Hori Aizawa", gender: "Female", building: "A", Room: "102", time: "11:45pm-3pm", image: "HIHO.JPG" },
+        { name: "Bob Johnson", gender: "Male", building: "C", Room: "103", time: "12:45pm-6pm", image: "KAY.JPG" },
+    ];
+
+    function createUserElement(user) {
+        const friendElement = document.createElement("div");
+        friendElement.className = "friend";
+        friendElement.innerHTML = `
+            <img src="${user.image}" alt="${user.name}'s Profile Image">
+            <h3>${user.name}</h3>
+            <div class="details">
+                <p>${user.gender}</p>
+                <p>Building: ${user.building}</p>
+                <p>Room: ${user.Room}</p>
+                <p>Time: ${user.time}</p>
+                <button onclick="makeAppointment('${user.name}')">Make Appointment</button>
+                <button onclick="sendMessage('${user.name}')">Message Now</button>
+            </div>
+        `;
+        return friendElement;
+    }
+
+function makeAppointment(name) {
+    window.location.href = "appointment-form.html";
+}
+
+function sendMessage(name) {
+    alert(`Message sent to ${name}`);
+}
+
+    const friendList = document.getElementById("friendList");
+    users.forEach(user => {
+        friendList.appendChild(createUserElement(user));
+    });
+</script>
+
+</body>
+</html>
