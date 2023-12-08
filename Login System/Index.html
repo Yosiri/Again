@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Appointment Center</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="login-container">
+            <div class="text-container">
+                <h1>Login Now</h1>
+            </div>
+            <form id="login-form">
+                <label for="username">Username:</label>
+                <input type="text" id="username" name="username" required>
+                <br>
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password" required>
+                <br>
+                <button type="submit" id="login-btn">Login</button>
+                <button type="button" id="signup-btn">Sign Up</button>
+            </form>
+            <div class="signup-container" id="signup-container">
+                <h2>Sign Up</h2>
+                <form id="signup-form">
+                    <!-- Include your sign-up form fields here -->
+                    <label for="signup-name">Name:</label>
+                    <input type="text" id="signup-name" name="signup-name" required>
+                    <br>
+                    <label for="signup-username">Username:</label>
+                    <input type="text" id="signup-username" name="signup-username" required>
+                    <br>
+                    <label for="signup-password">Password:</label>
+                    <input type="password" id="signup-password" name="signup-password" required>
+                    <br>
+                    <label for="repeat-password">Repeat Password:</label>
+                    <input type="password" id="repeat-password" name="repeat-password" required>
+                    <br>
+                    <button type="submit" id="signup-submit-btn">Sign Up</button>
+                </form>
+            </div>
+        </div>
+    </div>
+    <script src="scripts.js"></script>
+</body>
+</html>
